@@ -1,0 +1,40 @@
+<h2>Edit a Movie</h2>
+<form method='post' action='/movies/{{movie._id}}/edit'>
+  <div class='mb-3'>
+    <label class='form-label'>Title</label>
+    <input
+      class='form-control'
+      type='text'
+      name='title'
+      value='{{movie.title}}'
+    />
+    <br />
+    <label class='form-label'>Genre</label>
+    <input
+      class='form-control'
+      type='text'
+      name='genre'
+      value='{{movie.genre}}'
+    />
+    <br />
+    <label class='form-label'>Plot</label>
+    <input
+      class='form-control'
+      type='text'
+      name='plot'
+      value='{{movie.plot}}'
+    />
+    <br />
+    <label class='form-label'>Cast</label><br />
+    <select name='cast' multiple>
+      {{#each celebrity}}
+        <option 
+        value='{{this._id}}'
+        {{#if this.selected}}selected{{/if}}
+        >{{this.name}}</option>
+      {{/each}}
+    </select>
+    <br />
+    <button class='btn btn-primary' type='submit'>Edit</button>
+  </div>
+</form>
